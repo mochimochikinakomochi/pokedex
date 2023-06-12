@@ -13,7 +13,7 @@
     "git": "git add . && git commit && git push origin main",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "postbuild": "copy build/index.html build/404.html"
+    "postbuild": "copy dist/index.html dist/404.html"
   },
   "dependencies": {
     "gh-pages": "^5.0.0",
