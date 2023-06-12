@@ -15,7 +15,7 @@ export const App = () => {
           </Link>
         </div>
         <Routes>
-          <Route path='/' element={<Home />} />
+          <Route path='' element={<Home />} />
           <Route path='/PokemonList' element={<PokemonList />}>
             <Route path=':ID' element={<PokemonInfo />} />
           </Route>
