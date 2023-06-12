@@ -18,8 +18,8 @@ export const PokemonList = () => {
     }, [])
 
     const loadMore = () => {
-        startIDRef.current += 30
         if (!isFetchingPokemonList) {
+            startIDRef.current += 30
             const startID = startIDRef.current
             appendPokemonList({startID})
         }
@@ -29,7 +29,7 @@ export const PokemonList = () => {
     return (
         <div>
             <input value={text} onChange={(event) => setText(event.target.value)} className='h-8 border-4'></input>
-            <Link to={`/PokemonList/${text}`} className='text-blue-800'>Search</Link>
+            <Link to={`/PokemonList/${text}`} className='border-4 text-blue-800 bg-white'>Search</Link>
             <div className='flex'> 
                 <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={400} className='max-w-fit bg-white bg-opacity-75'>
                     {pokemonList.map((pokemon) =>{
@@ -39,7 +39,7 @@ export const PokemonList = () => {
                             <React.Fragment >
                                 <div className=''>
                                     <li className=''>
-                                        図鑑番号:{pokemon.id} 名前:
+                                        No.{pokemon.id} &nbsp; Name:
                                         <Link to={toUrl} className='text-blue-800'>{pokemon.name}</Link>
                                     </li>
                                 </div>
