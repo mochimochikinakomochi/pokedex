@@ -15,12 +15,12 @@ export const usePokemonList = () => {
 
     async function fetchPokemonList({startID = 1}: {startID: number}) {
         let subPokemonList: PokemonInList[] = []
-        const url = baseUrl + "?offset=" + (startID - 1) + "&limit=1000"
+        const url = baseUrl + "?offset=" + (startID - 1) + "&limit=30"
         try {
             setIsFetchingPokemonList(true)
             const response = await axios.get(url)
             const data = response.data.results
-            for(let i = 0; i < 1000; i++) {
+            for(let i = 0; i < 30; i++) {
                 const subPokemon: PokemonInList = {
                     ID: startID + i,
                     Name: data[i].name
