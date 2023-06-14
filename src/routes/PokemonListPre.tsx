@@ -8,13 +8,13 @@ import { BsChevronDoubleDown } from 'react-icons/bs'
 
 
 export const PokemonList = () => {
-    const {pokemonList, fetchPokemonList, appendPokemonList, isFetchingPokemonList} = usePokemonList()
+    const {pokemonList, isFetchingPokemonList, fetchPokemonListAPI, appendPokemonList} = usePokemonList()
     const [text, setText] = useState("")
     const startIDRef = useRef(1)
 
     useEffect(() => {
         const startID = startIDRef.current
-        fetchPokemonList({startID})
+        fetchPokemonListAPI({startID})
     }, [])
 
     const loadMore = () => {
@@ -33,14 +33,14 @@ export const PokemonList = () => {
             <div className='flex'> 
                 <Scrollbars autoHeight autoHeightMin={100} autoHeightMax={400} className='max-w-fit bg-white bg-opacity-75'>
                     {pokemonList.map((pokemon) =>{
-                        const pokemonID = pokemon.ID.toString()
+                        const pokemonID = pokemon.id.toString()
                         const toUrl = "/PokemonList/" + pokemonID
                         return (
                             <React.Fragment >
                                 <div className=''>
                                     <li className=''>
-                                        No.{pokemon.ID} &nbsp; Name:
-                                        <Link to={toUrl} className='text-blue-800'>{pokemon.Name}</Link>
+                                        No.{pokemon.id} &nbsp; Name:
+                                        <Link to={toUrl} className='text-blue-800'>{pokemon.name}</Link>
                                     </li>
                                 </div>
                             </React.Fragment>
